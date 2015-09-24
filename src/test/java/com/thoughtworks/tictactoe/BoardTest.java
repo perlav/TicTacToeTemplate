@@ -30,11 +30,7 @@ public class BoardTest {
     @Test
     public void shouldDrawBoardToConsole() {
         board.drawBoard();
-        verify(printStream).println("  |   |\n" +
-                "---------\n" +
-                "  |   |\n" +
-                "---------\n" +
-                "  |   |");
+        verify(boardLocations).printCurrentBoard();
     }
 
     @Test

@@ -7,26 +7,20 @@ import java.io.PrintStream;
  */
 public class Board {
     private PrintStream printStream;
-    private String currentBoard;
     private BoardLocations boardLocations;
 
     public Board(PrintStream printStream, BoardLocations boardLocations) {
         this.printStream = printStream;
         this.boardLocations = boardLocations;
-        this.currentBoard = "  |   |\n" +
-                            "---------\n" +
-                            "  |   |\n" +
-                            "---------\n" +
-                            "  |   |";
     }
 
     public void drawBoard() {
-        printStream.println(currentBoard);
+        boardLocations.printCurrentBoard();
     }
 
     public void redrawBoard(boolean isPlayer1, String move) {
         boardLocations.placeX(move);
-        printStream.println(currentBoard);
+        boardLocations.printCurrentBoard();
 
 
     }

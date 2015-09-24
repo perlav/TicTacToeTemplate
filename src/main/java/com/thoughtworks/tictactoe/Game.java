@@ -18,9 +18,12 @@ public class Game {
 
     public void start() throws IOException {
         board.drawBoard();
+
         printStream.println("Player 1 Move: Please enter a number between 1 and 9 indicating your next move.");
 
         String move = reader.readLine();
         board.redrawBoard(true, move);
+
+
     }
 }

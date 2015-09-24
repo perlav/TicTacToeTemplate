@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Hello Tic Tac Toe");
-        BoardLocations boardLocations = new BoardLocations();
+        BoardLocations boardLocations = new BoardLocations(System.out);
         Board board = new Board(System.out, boardLocations);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Game game = new Game(System.out, reader,board);
