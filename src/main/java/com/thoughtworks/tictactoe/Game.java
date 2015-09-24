@@ -29,7 +29,7 @@ public class Game {
 
         playerTwo.hasTurn();
         String secondLocation = reader.readLine();
-        playerOne.makeMove(secondLocation);
+        playerTwo.makeMove(secondLocation);
 
 
 
