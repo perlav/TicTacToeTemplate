@@ -26,8 +26,16 @@ public class BoardLocations {
         boardMap.put(location, "X ");
     }
 
+    public void placeO(String location) {
+        boardMap.put(location, "O ");
+    }
+
     public boolean hasX(String location ) {
         return boardMap.get(location).equals("X ");
+    }
+
+    public boolean hasO(String location) {
+        return boardMap.get(location).equals("O ");
     }
 
     public void printCurrentBoard() {
@@ -38,4 +46,7 @@ public class BoardLocations {
                 boardMap.get("7") + "|" + boardMap.get("8") + "|" + boardMap.get("9") + "\n");
 
     }
+
+
+
 }

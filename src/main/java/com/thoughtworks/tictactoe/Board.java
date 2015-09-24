@@ -18,8 +18,14 @@ public class Board {
         boardLocations.printCurrentBoard();
     }
 
-    public void redrawBoard(boolean isPlayer1, String move) {
-        boardLocations.placeX(move);
+    public void makeMove(boolean isPlayer1, String move) {
+        if(isPlayer1){
+            boardLocations.placeX(move);
+        }
+        else{
+            boardLocations.placeO(move);
+        }
+
         boardLocations.printCurrentBoard();
 
 

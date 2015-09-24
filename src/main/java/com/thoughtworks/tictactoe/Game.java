@@ -9,20 +9,31 @@ public class Game {
     private PrintStream printStream;
     private Board board;
     private BufferedReader reader;
+    private Player playerOne;
+    private Player playerTwo;
 
-    public Game(PrintStream printStream, BufferedReader reader, Board board) {
+    public Game(PrintStream printStream, BufferedReader reader, Board board, Player playerOne, Player playerTwo) {
         this.printStream = printStream;
         this.reader = reader;
         this.board = board;
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
     }
 
     public void start() throws IOException {
         board.drawBoard();
 
-        printStream.println("Player 1 Move: Please enter a number between 1 and 9 indicating your next move.");
+        playerOne.hasTurn();
+        String location = reader.readLine();
+        board.makeMove(true, location);
 
-        String move = reader.readLine();
-        board.redrawBoard(true, move);
+        playerTwo.hasTurn();
+        String secondLocation = reader.readLine();
+        board.makeMove(false, secondLocation);
+
+
+
+
 
 
     }

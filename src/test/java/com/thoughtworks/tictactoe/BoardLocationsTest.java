@@ -29,5 +29,28 @@ public class BoardLocationsTest {
         assertThat(boardLocations.hasX("1"), is(true));
     }
 
+    @Test
+    public void shouldNotChangeValueOfLocationOneToOWhenPlacingXAtThatLocationOne(){
+        boardLocations.placeX("1");
+        assertThat(boardLocations.hasO("1"), is(false));
+    }
+
+
+    @Test
+    public void shouldChangeValueOfLocationOneToOWhenPlacingOAtThatLocationOne(){
+        boardLocations.placeO("1");
+        assertThat(boardLocations.hasO("1"), is(true));
+    }
+
+    @Test
+    public void shouldNotChangeValueOfLocationOneToXWhenPlacingOAtThatLocationOne(){
+        boardLocations.placeO("1");
+        assertThat(boardLocations.hasX("1"), is(false));
+    }
+
+
+
+
+
 
 }

@@ -1,6 +1,5 @@
 package com.thoughtworks.tictactoe;
 
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,7 +7,6 @@ import java.io.PrintStream;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 
 public class BoardTest {
@@ -34,13 +32,19 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldPlaceXInBoardLocationWhenRedrawBoard(){
-        board.redrawBoard(PLAYER_ONE, "1");
+    public void shouldPlaceXInBoardLocationWhenPlayerOneMakesMove(){
+        board.makeMove(PLAYER_ONE, "1");
         verify(boardLocations).placeX("1");
 
+    }
 
+    @Test
+    public void shouldPlaceOInBoardLocationWhenPlayerTwoMakesMove(){
+        board.makeMove(PLAYER_TWO, "2");
+        verify(boardLocations).placeO("2");
 
     }
+
 
 
 

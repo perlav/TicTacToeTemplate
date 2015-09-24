@@ -11,7 +11,10 @@ public class Main {
         BoardLocations boardLocations = new BoardLocations(System.out);
         Board board = new Board(System.out, boardLocations);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        Game game = new Game(System.out, reader,board);
+        Player playerOne = new Player(true, System.out);
+        Player playerTwo = new Player(false, System.out);
+
+        Game game = new Game(System.out, reader,board, playerOne, playerTwo);
         game.start();
 
     }
