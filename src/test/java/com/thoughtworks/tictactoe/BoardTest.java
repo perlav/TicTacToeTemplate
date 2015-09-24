@@ -21,15 +21,9 @@ public class BoardTest {
     public void setup(){
         printStream = mock(PrintStream.class);
         boardLocations = mock(BoardLocations.class);
-        board = new Board(printStream, boardLocations
-        );
+        board = new Board(printStream, boardLocations);
     }
 
-    @Test
-    public void shouldDrawBoardToConsole() {
-        board.drawBoard();
-        verify(boardLocations).printCurrentBoard();
-    }
 
     @Test
     public void shouldPlaceXInBoardLocationWhenPlayerOneMakesMove(){

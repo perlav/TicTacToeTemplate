@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 public class GameTest {
     private PrintStream printStream;
     private Game game;
-    private Board board;
+    private BoardLocations boardLocations;
     private BufferedReader reader;
     private Player playerOne;
     private Player playerTwo;
@@ -22,17 +22,17 @@ public class GameTest {
     @Before
     public void setup(){
         printStream = mock(PrintStream.class);
-        board = mock(Board.class);
+        boardLocations = mock(BoardLocations.class);
         reader = mock(BufferedReader.class);
         playerOne = mock(Player.class);
         playerTwo = mock(Player.class);
-        game = new Game(printStream, reader, board, playerOne, playerTwo);
+        game = new Game(printStream, reader, boardLocations, playerOne, playerTwo);
     }
 
     @Test
     public void shouldDrawBoardWhenStarts() throws IOException {
         game.start();
-        verify(board).drawBoard();
+        verify(boardLocations).printCurrentBoard();
     }
 
     @Test
@@ -42,21 +42,15 @@ public class GameTest {
     }
 
 
-    @Test
-    public void shouldRedrawTheBoardWhenPlayerOneInputsValidMove() throws IOException {
-        when(reader.readLine()).thenReturn("1");
-        game.start();
-        verify(board).makeMove(true, "1");
+//    @Test
+//    public void shouldMakeMoveWhenPlayerInputsLocation() throws IOException {
+//        when(reader.readLine()).thenReturn("1");
+//        game.start();
+//        verify(playerOne).makeMove("1");
+//
+//    }
 
-    }
 
 
-    @Test
-    public void shouldRedrawTheBoardWhenPlayerTwoInputsValidMove() throws IOException {
-        when(reader.readLine()).thenReturn("2");
-        game.start();
-        verify(board).makeMove(false, "2");
-
-    }
 
 }

@@ -14,15 +14,32 @@ import static org.mockito.Mockito.verify;
  */
 public class PlayerTest {
     private PrintStream printStream;
+    private BoardLocations boardLocations;
     private Player playerOne;
     private Player playerTwo;
 
     @Before
     public void setup(){
         printStream = mock(PrintStream.class);
-        playerOne = new Player(true, printStream);
-        playerTwo = new Player(false, printStream);
+        boardLocations = mock(BoardLocations.class);
+        playerOne = new Player(true, boardLocations, printStream);
+        playerTwo = new Player(false, boardLocations, printStream);
     }
+
+    @Test
+    public void shouldPlaceXInBoardLocationWhenPlayerOneMakesMove(){
+        playerOne.makeMove("1");
+        verify(boardLocations).placeX("1");
+
+    }
+
+    @Test
+    public void shouldPlaceOInBoardLocationWhenPlayerTwoMakesMove(){
+        playerTwo.makeMove("2");
+        verify(boardLocations).placeO("2");
+
+    }
+
 
     @Test
     public void shouldPromptPlayerOneWhenPlayerOneHasTurn() throws Exception {

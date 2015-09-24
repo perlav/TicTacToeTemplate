@@ -7,29 +7,29 @@ import java.io.PrintStream;
 
 public class Game {
     private PrintStream printStream;
-    private Board board;
+    private BoardLocations boardLocations;
     private BufferedReader reader;
     private Player playerOne;
     private Player playerTwo;
 
-    public Game(PrintStream printStream, BufferedReader reader, Board board, Player playerOne, Player playerTwo) {
+    public Game(PrintStream printStream, BufferedReader reader, BoardLocations boardLocations, Player playerOne, Player playerTwo) {
         this.printStream = printStream;
         this.reader = reader;
-        this.board = board;
+        this.boardLocations = boardLocations;
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
     }
 
     public void start() throws IOException {
-        board.drawBoard();
+        boardLocations.printCurrentBoard();
 
         playerOne.hasTurn();
         String location = reader.readLine();
-        board.makeMove(true, location);
+        playerOne.makeMove(location);
 
         playerTwo.hasTurn();
         String secondLocation = reader.readLine();
-        board.makeMove(false, secondLocation);
+        playerOne.makeMove(secondLocation);
 
 
 

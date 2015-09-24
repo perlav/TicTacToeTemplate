@@ -8,11 +8,12 @@ import java.io.PrintStream;
 public class Player {
     private boolean isPlayerOne;
     PrintStream printStream;
+    private BoardLocations boardLocations;
 
-    public Player(boolean isPlayerOne, PrintStream printStream){
+    public Player(boolean isPlayerOne, BoardLocations boardLocations, PrintStream printStream){
         this.isPlayerOne = isPlayerOne;
+        this.boardLocations = boardLocations;
         this.printStream = printStream;
-
     }
 
     public void hasTurn() {
@@ -23,6 +24,16 @@ public class Player {
         else {
             printStream.println("Player 2 Move: Please enter a number between 1 and 9 indicating your next move.");
         }
+    }
 
+    public void makeMove(String move) {
+        if(this.isPlayerOne){
+            boardLocations.placeX(move);
+        }
+        else{
+            boardLocations.placeO(move);
+        }
+
+        boardLocations.printCurrentBoard();
     }
 }

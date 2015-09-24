@@ -9,12 +9,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("Hello Tic Tac Toe");
         BoardLocations boardLocations = new BoardLocations(System.out);
-        Board board = new Board(System.out, boardLocations);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        Player playerOne = new Player(true, System.out);
-        Player playerTwo = new Player(false, System.out);
+        Player playerOne = new Player(true, boardLocations, System.out);
+        Player playerTwo = new Player(false,boardLocations, System.out);
 
-        Game game = new Game(System.out, reader,board, playerOne, playerTwo);
+        Game game = new Game(System.out, reader,boardLocations, playerOne, playerTwo);
         game.start();
 
     }
