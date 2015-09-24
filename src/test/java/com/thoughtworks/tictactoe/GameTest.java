@@ -38,19 +38,8 @@ public class GameTest {
     @Test
     public void shouldPromptPlayerOneToMakeMoveAtStart() throws IOException {
         game.start();
-        verify(playerOne).hasTurn();
+        verify(playerOne).takeTurn();
     }
-
-
-//    @Test
-//    public void shouldMakeMoveWhenPlayerInputsLocation() throws IOException {
-//        when(reader.readLine()).thenReturn("1");
-//        game.start();
-//        verify(playerOne).makeMove("1");
-//
-//    }
-
-
 
 
 }

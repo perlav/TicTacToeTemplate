@@ -23,18 +23,8 @@ public class Game {
     public void start() throws IOException {
         boardLocations.printCurrentBoard();
 
-        playerOne.hasTurn();
-        String location = reader.readLine();
-        playerOne.makeMove(location);
-
-        playerTwo.hasTurn();
-        String secondLocation = reader.readLine();
-        playerTwo.makeMove(secondLocation);
-
-
-
-
-
+        playerOne.takeTurn();
+        playerTwo.takeTurn();
 
     }
 }

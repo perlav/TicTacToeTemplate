@@ -48,5 +48,12 @@ public class BoardLocations {
     }
 
 
-
+    public boolean isAvailable(String location) {
+        if(boardMap.get(location).equals("  ")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

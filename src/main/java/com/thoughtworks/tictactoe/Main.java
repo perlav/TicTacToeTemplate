@@ -10,8 +10,8 @@ public class Main {
         System.out.println("Hello Tic Tac Toe");
         BoardLocations boardLocations = new BoardLocations(System.out);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        Player playerOne = new Player(true, boardLocations, System.out);
-        Player playerTwo = new Player(false,boardLocations, System.out);
+        Player playerOne = new Player(true, boardLocations, System.out, reader);
+        Player playerTwo = new Player(false,boardLocations, System.out, reader);
 
         Game game = new Game(System.out, reader,boardLocations, playerOne, playerTwo);
         game.start();

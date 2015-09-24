@@ -49,6 +49,17 @@ public class BoardLocationsTest {
         assertThat(boardLocations.hasX("1"), is(false));
     }
 
+    @Test
+    public void shouldReturnFalseIfLocationIsNotAvailable(){
+        boardLocations.placeX("1");
+        assertThat(boardLocations.isAvailable("1"), is(false));
+    }
+
+    @Test
+    public void shouldReturnTrueIfLocationIsAvailable(){
+        assertThat(boardLocations.isAvailable("1"), is(true));
+    }
+
 
 
 
